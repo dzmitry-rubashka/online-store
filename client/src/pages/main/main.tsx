@@ -1,13 +1,20 @@
-import { Button, Page } from "../../components/index.ts";
+import { useNavigate } from "react-router-dom";
+
+import { Button, Page } from "../../components/index";
 
 import "./main.css";
 
-import phone from "../../assets/images/phone.jpg";
-import tablet from "../../assets/images/tablet.jpg";
-import laptop from "../../assets/images/laptop.jpg";
+import phone from "../../assets/images/common/phone.jpg";
+import tablet from "../../assets/images/common/tablet.jpg";
+import laptop from "../../assets/images/common/laptop.jpg";
 
 const Main: React.FC = () => {
-  const onClickShopNow = () => {}; // will be added
+  const navigate = useNavigate();
+
+  const onClickShopNow = (): void => {
+    const path = "products";
+    navigate(path);
+  };
 
   return (
     <Page title="Tech Store">
@@ -57,7 +64,7 @@ const Main: React.FC = () => {
           <span className="sr-only">Next</span>
         </a>
       </div>
-      <Button value="Shop Now" onClick={onClickShopNow} />
+      <Button value="Shop Now" variant="secondary" onClick={onClickShopNow} />
     </Page>
   );
 };

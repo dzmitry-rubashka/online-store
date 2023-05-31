@@ -1,6 +1,6 @@
-import { Header } from "../index.ts";
+import { Header } from "../index";
 
-import PageProps from "./types.ts";
+import PageProps from "./types";
 
 const Page: React.FC<PageProps> = ({ title, children }) => {
   return (

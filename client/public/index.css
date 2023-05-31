@@ -24,6 +24,7 @@ code {
 :root {
   --main: #18233a;
   --dark-cyan: #008b8b;
-  --button: #8cb369;
+  --button-primary: #8cb369;
+  --button-secondary: #9a4f95;
   --button-border: #7d4f50;
 }

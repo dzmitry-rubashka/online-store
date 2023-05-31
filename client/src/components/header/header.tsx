@@ -1,6 +1,6 @@
-import { Button } from "../../components/index.ts";
+import { Button } from "../../components/index";
 
-import HeaderProps from "./types.ts";
+import HeaderProps from "./types";
 
 import "./header.css";
 
@@ -12,8 +12,8 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
     <header>
       <h1>{title}</h1>
       <div className="buttons">
-        <Button value="Log In" onClick={onClickLogIn} />
-        <Button value="Log Out" onClick={onClickLogOut} />
+        <Button value="Log In" variant="primary" onClick={onClickLogIn} />
+        <Button value="Log Out" variant="primary" onClick={onClickLogOut} />
       </div>
     </header>
   );
