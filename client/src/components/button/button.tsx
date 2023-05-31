@@ -8,7 +8,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
 }) => {
   return (
-    <button onClick={onClick} className={variant}>
+    <button onClick={onClick} className={`button-${variant}`}>
       {value}
     </button>
   );

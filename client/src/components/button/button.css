@@ -14,10 +14,10 @@ button:hover {
   opacity: 0.75;
 }
 
-.primary {
+.button-primary {
   background-color: var(--button-primary);
 }
 
-.secondary {
+.button-secondary {
   background-color: var(--button-secondary);
 }
