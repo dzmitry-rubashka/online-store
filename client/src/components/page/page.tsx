@@ -2,11 +2,11 @@ import { Header } from "../index";
 
 import PageProps from "./types";
 
-const Page: React.FC<PageProps> = ({ title, children }) => {
+const Page: React.FC<PageProps> = ({ title, children, className }) => {
   return (
     <>
       <Header title={title} />
-      <main>{children}</main>
+      <main className={className}>{children}</main>
     </>
   );
 };

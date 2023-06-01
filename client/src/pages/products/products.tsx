@@ -1,4 +1,4 @@
-import { Phone, Page, Input } from "../../components/index";
+import { Phone, Page, SearchForm } from "../../components/index";
 
 import phones from "../../mock/phones.json";
 
@@ -6,7 +6,7 @@ import "./products.css";
 
 const Products: React.FC = () => {
   return (
-    <Page title="Products">
+    <Page title="Products" className="products-container">
       <div className="phones-container">
         {phones.map((phone) => (
           <Phone
@@ -26,7 +26,7 @@ const Products: React.FC = () => {
           />
         ))}
       </div>
-      <Input />
+      <SearchForm />
     </Page>
   );
 };

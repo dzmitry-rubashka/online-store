@@ -2,3 +2,7 @@
   background-color: var(--white);
   text-align: left;
 }
+
+.input:focus {
+  outline: none;
+}

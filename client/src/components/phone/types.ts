@@ -10,7 +10,7 @@ interface PhoneProps {
   camera: number;
   mah: number;
   sim: number;
-  imgSrc?: string;
+  imgSrc: string;
 }
 
 export default PhoneProps;

@@ -1,0 +1,9 @@
+.search-form-container {
+  width: 24%;
+  border: 3px solid var(--main);
+}
+
+.search-form-container > p {
+  margin: 0;
+  font-size: initial;
+}
