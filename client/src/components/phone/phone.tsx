@@ -17,20 +17,24 @@ const Phone: React.FC<PhoneProps> = ({
   imgSrc,
 }) => {
   return (
-    <>
-      <div>{name}</div>
-      <div>{price}</div>
-      <div>{operatingSystem}</div>
-      <div>{screen}</div>
-      <div>{screenResolutionHeight}</div>
-      <div>{screenResolutionWidth}</div>
-      <div>{ram}</div>
-      <div>{memory}</div>
-      <div>{camera}</div>
-      <div>{mah}</div>
-      <div>{sim}</div>
-      <img src={imgSrc} alt={name} />
-    </>
+    <div className="phone-container">
+      <div>
+        <img src={imgSrc} alt={name} className="phone-image"/>
+      </div>
+      <div className="characteristics">
+        <p>{name}</p>
+        <p>Price: {price} $</p>
+        <p>Operating System: {operatingSystem}</p>
+        <p>
+          Screen: {screen} ({screenResolutionWidth}x{screenResolutionHeight})
+        </p>
+        <p>RAM: {ram} GB</p>
+        <p>Memory: {memory} GB</p>
+        <p>Camera: {camera} Mpx</p>
+        <p>Battery: {mah} mAh</p>
+        <p>SIM: {sim}</p>
+      </div>
+    </div>
   );
 };
 

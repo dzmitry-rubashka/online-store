@@ -22,6 +22,7 @@ code {
 }
 
 :root {
+  --white: #ffffff;
   --main: #18233a;
   --dark-cyan: #008b8b;
   --button-primary: #8cb369;
