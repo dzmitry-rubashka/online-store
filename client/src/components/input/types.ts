@@ -1,7 +1,8 @@
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  id?: string;
+  id: string;
   name?: string;
   placeholder?: string;
+  type?: "string" | "number";
 }
 
 export default InputProps;
