@@ -41,9 +41,30 @@ const SearchForm: React.FC = () => {
     searchForm.maxMpx >= searchForm.minMpx &&
     searchForm.maxMah >= searchForm.minMah;
 
-  const onSubmit = (event: React.ChangeEvent<HTMLFormElement>): void => {
+  const onSubmitForm = (event: React.ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log(searchForm);
+    console.log(searchForm, "onSubmitForm");
+  };
+
+  const onResetForm = (event: React.MouseEvent): void => {
+    event.preventDefault();
+    setSearchForm({
+      name: "",
+      minPrice: 0,
+      maxPrice: 0,
+      operatingSystem: "Android",
+      minScreenResolution: 4,
+      maxScreenResolution: 8,
+      minRam: 1,
+      maxRam: 16,
+      minMemory: 8,
+      maxMemory: 1024,
+      minMpx: 4,
+      maxMpx: 256,
+      minMah: 2000,
+      maxMah: 9000,
+      sim: 1,
+    });
   };
 
   const onChangeInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,23 +95,41 @@ const SearchForm: React.FC = () => {
 
   return (
     <section className="search-form-container">
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmitForm}>
         <p>Search Parameters</p>
         <Label id="name">
-          Device Name <Input id="name" onChange={onChangeInputValue} />
+          Device Name{" "}
+          <Input
+            id="name"
+            type="string"
+            value={searchForm.name}
+            onChange={onChangeInputValue}
+          />
         </Label>
         <Label id="minPrice">
           Min Price, ${" "}
-          <Input id="minPrice" type="number" onChange={onChangeInputValue} />
+          <Input
+            id="minPrice"
+            type="number"
+            value={searchForm.minPrice}
+            onChange={onChangeInputValue}
+          />
         </Label>
         <Label id="maxPrice">
           Max Price, ${" "}
-          <Input id="maxPrice" type="number" onChange={onChangeInputValue} />
+          <Input
+            id="maxPrice"
+            type="number"
+            value={searchForm.maxPrice}
+            onChange={onChangeInputValue}
+          />
         </Label>
         <Label id="operatingSystem">
           Operating System{" "}
           <Dropdown
             id="operatingSystem"
+            name="operatingSystem"
+            value={searchForm.operatingSystem}
             options={operatingSystem}
             onChange={onChangeDropdownValue}
           />
@@ -99,6 +138,8 @@ const SearchForm: React.FC = () => {
           Min Screen Resolution, "{" "}
           <Dropdown
             id="minScreenResolution"
+            name="minScreenResolution"
+            value={searchForm.minScreenResolution}
             options={screenResolution}
             selectedValue="min"
             onChange={onChangeDropdownValue}
@@ -108,6 +149,8 @@ const SearchForm: React.FC = () => {
           Max Screen Resolution, "{" "}
           <Dropdown
             id="maxScreenResolution"
+            name="maxScreenResolution"
+            value={searchForm.maxScreenResolution}
             options={screenResolution}
             selectedValue="max"
             onChange={onChangeDropdownValue}
@@ -117,6 +160,8 @@ const SearchForm: React.FC = () => {
           Min RAM, GB{" "}
           <Dropdown
             id="minRam"
+            name="minRam"
+            value={searchForm.minRam}
             options={ram}
             selectedValue="min"
             onChange={onChangeDropdownValue}
@@ -126,6 +171,8 @@ const SearchForm: React.FC = () => {
           Max RAM, GB{" "}
           <Dropdown
             id="maxRam"
+            name="maxRam"
+            value={searchForm.maxRam}
             options={ram}
             selectedValue="max"
             onChange={onChangeDropdownValue}
@@ -135,6 +182,8 @@ const SearchForm: React.FC = () => {
           Min Memory, GB{" "}
           <Dropdown
             id="minMemory"
+            name="minMemory"
+            value={searchForm.minMemory}
             options={memory}
             selectedValue="min"
             onChange={onChangeDropdownValue}
@@ -144,6 +193,8 @@ const SearchForm: React.FC = () => {
           Max Memory, GB{" "}
           <Dropdown
             id="maxMemory"
+            name="maxMemory"
+            value={searchForm.maxMemory}
             options={memory}
             selectedValue="max"
             onChange={onChangeDropdownValue}
@@ -153,48 +204,67 @@ const SearchForm: React.FC = () => {
           Min Mpx{" "}
           <Dropdown
             id="minMpx"
+            name="minMpx"
+            value={searchForm.minMpx}
             options={mpx}
             selectedValue="min"
             onChange={onChangeDropdownValue}
           />
         </Label>
         <Label id="maxMpx">
-          Max Mpx
+          Max Mpx{" "}
           <Dropdown
             id="maxMpx"
+            name="maxMpx"
+            value={searchForm.maxMpx}
             options={mpx}
             selectedValue="max"
             onChange={onChangeDropdownValue}
           />
         </Label>
         <Label id="minMah">
-          Min mAh
+          Min mAh{" "}
           <Dropdown
             id="minMah"
+            name="minMah"
+            value={searchForm.minMah}
             options={mah}
             selectedValue="min"
             onChange={onChangeDropdownValue}
           />
         </Label>
         <Label id="maxMah">
-          Max mAh
+          Max mAh{" "}
           <Dropdown
             id="maxMah"
+            name="maxMah"
+            value={searchForm.maxMah}
             options={mah}
             selectedValue="max"
             onChange={onChangeDropdownValue}
           />
         </Label>
         <Label id="sim">
-          SIM
+          SIM{" "}
           <Dropdown
             id="sim"
+            name="sim"
+            value={searchForm.sim}
             options={simCards}
             onChange={onChangeDropdownValue}
           />
         </Label>
-        <Button value="Search" variant="primary" type="submit" />
-        {!isFormValid && <p className="form-validation">Form is not valid</p>}
+        <Button
+          value="Reset"
+          variant="primary"
+          type="reset"
+          onClick={onResetForm}
+        />
+        {!isFormValid ? (
+          <p className="form-validation">Form is not valid</p>
+        ) : (
+          <Button value="Search" variant="primary" type="submit" />
+        )}
       </form>
     </section>
   );

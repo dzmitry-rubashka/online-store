@@ -1,4 +1,4 @@
-button {
+.button {
   padding: 3px 12px;
   border: solid 2px var(--button-border);
   border-radius: 5px;
@@ -6,11 +6,11 @@ button {
   cursor: pointer;
 }
 
-button:focus {
+.button:focus {
   outline: none;
 }
 
-button:hover {
+.button:hover {
   opacity: 0.75;
 }
 

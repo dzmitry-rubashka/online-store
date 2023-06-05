@@ -7,12 +7,14 @@ const Input: React.FC<InputProps> = ({
   name,
   placeholder,
   type,
+  value,
   onChange,
 }) => {
   return (
     <input
       id={id}
       name={name}
+      value={value}
       type={type}
       placeholder={placeholder}
       onChange={onChange}
