@@ -7,3 +7,10 @@
   margin: 0;
   font-size: initial;
 }
+
+.form-validation {
+  color: var(--red);
+  background-color: #af9ea6;
+  width: 50%;
+  margin: auto;
+}

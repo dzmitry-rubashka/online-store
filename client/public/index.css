@@ -28,8 +28,10 @@ input::-webkit-inner-spin-button {
 }
 
 :root {
-  --white: #ffffff;
   --main: #18233a;
+  --white: #ffffff;
+  --red: #ff0000;
+  --pink-light: #af9ea6;
   --dark-cyan: #008b8b;
   --button-primary: #8cb369;
   --button-secondary: #9a4f95;

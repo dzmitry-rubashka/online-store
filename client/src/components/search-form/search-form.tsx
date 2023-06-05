@@ -194,6 +194,7 @@ const SearchForm: React.FC = () => {
           />
         </Label>
         <Button value="Search" variant="primary" type="submit" />
+        {!isFormValid && <p className="form-validation">Form is not valid</p>}
       </form>
     </section>
   );
