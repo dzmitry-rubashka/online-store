@@ -59,25 +59,41 @@ const Products: React.FC<ProductsPageProps> = () => {
 
   const onSubmitForm = (event: React.ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log(filteredState);
     setPhonesData(
       mockPhones.filter((phone) => {
-        return (
-          phone.price >= filteredState.minPrice &&
-          phone.price <= filteredState.maxPrice &&
-          phone.operatingSystem === filteredState.operatingSystem &&
-          phone.screen >= filteredState.minScreenResolution &&
-          phone.screen <= filteredState.maxScreenResolution &&
-          phone.ram >= filteredState.minRam &&
-          phone.ram <= filteredState.maxRam &&
-          phone.memory >= filteredState.minMemory &&
-          phone.memory <= filteredState.maxMemory &&
-          phone.camera >= filteredState.minMpx &&
-          phone.camera <= filteredState.maxMpx &&
-          phone.mah >= filteredState.minMah &&
-          phone.mah <= filteredState.maxMah &&
-          phone.sim === filteredState.sim
-        );
+        return filteredState.name === ""
+          ? phone.price >= filteredState.minPrice &&
+              phone.price <= filteredState.maxPrice &&
+              phone.operatingSystem === filteredState.operatingSystem &&
+              phone.screen >= filteredState.minScreenResolution &&
+              phone.screen <= filteredState.maxScreenResolution &&
+              phone.ram >= filteredState.minRam &&
+              phone.ram <= filteredState.maxRam &&
+              phone.memory >= filteredState.minMemory &&
+              phone.memory <= filteredState.maxMemory &&
+              phone.camera >= filteredState.minMpx &&
+              phone.camera <= filteredState.maxMpx &&
+              phone.mah >= filteredState.minMah &&
+              phone.mah <= filteredState.maxMah &&
+              phone.sim === filteredState.sim
+          : phone.name
+              .replace(/\s/g, "")
+              .toLowerCase()
+              .includes(filteredState.name.toLowerCase()) &&
+              phone.price >= filteredState.minPrice &&
+              phone.price <= filteredState.maxPrice &&
+              phone.operatingSystem === filteredState.operatingSystem &&
+              phone.screen >= filteredState.minScreenResolution &&
+              phone.screen <= filteredState.maxScreenResolution &&
+              phone.ram >= filteredState.minRam &&
+              phone.ram <= filteredState.maxRam &&
+              phone.memory >= filteredState.minMemory &&
+              phone.memory <= filteredState.maxMemory &&
+              phone.camera >= filteredState.minMpx &&
+              phone.camera <= filteredState.maxMpx &&
+              phone.mah >= filteredState.minMah &&
+              phone.mah <= filteredState.maxMah &&
+              phone.sim === filteredState.sim;
       })
     );
   };
