@@ -15,4 +15,5 @@ interface SearchFormStateProps {
   maxMah: number;
   sim: number;
 }
+
 export default SearchFormStateProps;

@@ -7,7 +7,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   name,
   value,
   options,
-  selectedValue,
   onChange,
 }) => {
   return (
@@ -17,11 +16,6 @@ const Dropdown: React.FC<DropdownProps> = ({
         name={name}
         value={value}
         className="dropdown-container"
-        // defaultValue={
-        //   selectedValue === "min" || !selectedValue
-        //     ? options[0]
-        //     : options[options.length - 1]
-        // }
         onChange={onChange}
       >
         {options.map((option) => (

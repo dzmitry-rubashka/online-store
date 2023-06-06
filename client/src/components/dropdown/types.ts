@@ -3,7 +3,6 @@ interface DropdownProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   value?: string | number;
   name?: string;
   options: string[] | number[];
-  selectedValue?: "min" | "max";
 }
 
 export default DropdownProps;

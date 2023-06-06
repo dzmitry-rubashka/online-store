@@ -122,7 +122,7 @@
     "memory": 128,
     "camera": 64,
     "mah": 4385,
-    "sim": 2,
+    "sim": 1,
     "imgSrc": "https://content2.onliner.by/catalog/device/header/02c1dc42ead78c3d402271e56adc450c.jpeg"
   },
   {
@@ -192,7 +192,7 @@
     "memory": 128,
     "camera": 100,
     "mah": 4500,
-    "sim": 2,
+    "sim": 1,
     "imgSrc": "https://content2.onliner.by/catalog/device/header/0cd47ec6b206432eda6abe45c157b8e0.jpeg"
   },
   {
@@ -318,7 +318,7 @@
     "memory": 256,
     "camera": 50,
     "mah": 3700,
-    "sim": 2,
+    "sim": 1,
     "imgSrc": "https://content2.onliner.by/catalog/device/header/267ec5e730c739ce4b1f10dfffb6646e.jpeg"
   },
   {

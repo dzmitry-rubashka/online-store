@@ -4,11 +4,10 @@ import SearchFormStateProps from "./types";
 
 import { Input, Label, Dropdown, Button } from "../../components/index";
 
-// import SearchFormProps from "./types";
 import "./search-form.css";
 
 const SearchForm: React.FC = () => {
-  const [searchForm, setSearchForm] = useState<SearchFormStateProps>({
+  const [filteredState, setFilteredState] = useState<SearchFormStateProps>({
     name: "",
     minPrice: 0,
     maxPrice: 0,
@@ -35,20 +34,21 @@ const SearchForm: React.FC = () => {
   const simCards: number[] = [1, 2];
 
   const isFormValid: boolean =
-    searchForm.maxScreenResolution >= searchForm.minScreenResolution &&
-    searchForm.maxRam >= searchForm.minRam &&
-    searchForm.maxMemory >= searchForm.minMemory &&
-    searchForm.maxMpx >= searchForm.minMpx &&
-    searchForm.maxMah >= searchForm.minMah;
+    filteredState.maxPrice >= filteredState.minPrice &&
+    filteredState.maxScreenResolution >= filteredState.minScreenResolution &&
+    filteredState.maxRam >= filteredState.minRam &&
+    filteredState.maxMemory >= filteredState.minMemory &&
+    filteredState.maxMpx >= filteredState.minMpx &&
+    filteredState.maxMah >= filteredState.minMah;
 
   const onSubmitForm = (event: React.ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log(searchForm, "onSubmitForm");
+    console.log(filteredState, "filteredState");
   };
 
   const onResetForm = (event: React.MouseEvent): void => {
     event.preventDefault();
-    setSearchForm({
+    setFilteredState({
       name: "",
       minPrice: 0,
       maxPrice: 0,
@@ -69,12 +69,12 @@ const SearchForm: React.FC = () => {
 
   const onChangeInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.target.id === "name"
-      ? setSearchForm({
-          ...searchForm,
+      ? setFilteredState({
+          ...filteredState,
           [event.target.id]: event.target.value,
         })
-      : setSearchForm({
-          ...searchForm,
+      : setFilteredState({
+          ...filteredState,
           [event.target.id]: +event.target.value,
         });
   };
@@ -83,12 +83,12 @@ const SearchForm: React.FC = () => {
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     event.target.id === "operatingSystem"
-      ? setSearchForm({
-          ...searchForm,
+      ? setFilteredState({
+          ...filteredState,
           [event.target.id]: event.target.value,
         })
-      : setSearchForm({
-          ...searchForm,
+      : setFilteredState({
+          ...filteredState,
           [event.target.id]: +event.target.value,
         });
   };
@@ -102,7 +102,7 @@ const SearchForm: React.FC = () => {
           <Input
             id="name"
             type="string"
-            value={searchForm.name}
+            value={filteredState.name}
             onChange={onChangeInputValue}
           />
         </Label>
@@ -111,7 +111,7 @@ const SearchForm: React.FC = () => {
           <Input
             id="minPrice"
             type="number"
-            value={searchForm.minPrice}
+            value={filteredState.minPrice}
             onChange={onChangeInputValue}
           />
         </Label>
@@ -120,7 +120,7 @@ const SearchForm: React.FC = () => {
           <Input
             id="maxPrice"
             type="number"
-            value={searchForm.maxPrice}
+            value={filteredState.maxPrice}
             onChange={onChangeInputValue}
           />
         </Label>
@@ -129,7 +129,7 @@ const SearchForm: React.FC = () => {
           <Dropdown
             id="operatingSystem"
             name="operatingSystem"
-            value={searchForm.operatingSystem}
+            value={filteredState.operatingSystem}
             options={operatingSystem}
             onChange={onChangeDropdownValue}
           />
@@ -139,9 +139,8 @@ const SearchForm: React.FC = () => {
           <Dropdown
             id="minScreenResolution"
             name="minScreenResolution"
-            value={searchForm.minScreenResolution}
+            value={filteredState.minScreenResolution}
             options={screenResolution}
-            selectedValue="min"
             onChange={onChangeDropdownValue}
           />
         </Label>
@@ -150,9 +149,8 @@ const SearchForm: React.FC = () => {
           <Dropdown
             id="maxScreenResolution"
             name="maxScreenResolution"
-            value={searchForm.maxScreenResolution}
+            value={filteredState.maxScreenResolution}
             options={screenResolution}
-            selectedValue="max"
             onChange={onChangeDropdownValue}
           />
         </Label>
@@ -161,9 +159,8 @@ const SearchForm: React.FC = () => {
           <Dropdown
             id="minRam"
             name="minRam"
-            value={searchForm.minRam}
+            value={filteredState.minRam}
             options={ram}
-            selectedValue="min"
             onChange={onChangeDropdownValue}
           />
         </Label>
@@ -172,9 +169,8 @@ const SearchForm: React.FC = () => {
           <Dropdown
             id="maxRam"
             name="maxRam"
-            value={searchForm.maxRam}
+            value={filteredState.maxRam}
             options={ram}
-            selectedValue="max"
             onChange={onChangeDropdownValue}
           />
         </Label>
@@ -183,9 +179,8 @@ const SearchForm: React.FC = () => {
           <Dropdown
             id="minMemory"
             name="minMemory"
-            value={searchForm.minMemory}
+            value={filteredState.minMemory}
             options={memory}
-            selectedValue="min"
             onChange={onChangeDropdownValue}
           />
         </Label>
@@ -194,9 +189,8 @@ const SearchForm: React.FC = () => {
           <Dropdown
             id="maxMemory"
             name="maxMemory"
-            value={searchForm.maxMemory}
+            value={filteredState.maxMemory}
             options={memory}
-            selectedValue="max"
             onChange={onChangeDropdownValue}
           />
         </Label>
@@ -205,9 +199,8 @@ const SearchForm: React.FC = () => {
           <Dropdown
             id="minMpx"
             name="minMpx"
-            value={searchForm.minMpx}
+            value={filteredState.minMpx}
             options={mpx}
-            selectedValue="min"
             onChange={onChangeDropdownValue}
           />
         </Label>
@@ -216,9 +209,8 @@ const SearchForm: React.FC = () => {
           <Dropdown
             id="maxMpx"
             name="maxMpx"
-            value={searchForm.maxMpx}
+            value={filteredState.maxMpx}
             options={mpx}
-            selectedValue="max"
             onChange={onChangeDropdownValue}
           />
         </Label>
@@ -227,9 +219,8 @@ const SearchForm: React.FC = () => {
           <Dropdown
             id="minMah"
             name="minMah"
-            value={searchForm.minMah}
+            value={filteredState.minMah}
             options={mah}
-            selectedValue="min"
             onChange={onChangeDropdownValue}
           />
         </Label>
@@ -238,9 +229,8 @@ const SearchForm: React.FC = () => {
           <Dropdown
             id="maxMah"
             name="maxMah"
-            value={searchForm.maxMah}
+            value={filteredState.maxMah}
             options={mah}
-            selectedValue="max"
             onChange={onChangeDropdownValue}
           />
         </Label>
@@ -249,7 +239,7 @@ const SearchForm: React.FC = () => {
           <Dropdown
             id="sim"
             name="sim"
-            value={searchForm.sim}
+            value={filteredState.sim}
             options={simCards}
             onChange={onChangeDropdownValue}
           />

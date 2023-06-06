@@ -9,3 +9,20 @@
   grid-gap: 15px;
   width: 75%;
 }
+
+.search-form-container {
+  width: 24%;
+  border: 3px solid var(--main);
+}
+
+.search-form-container > p {
+  margin: 0;
+  font-size: initial;
+}
+
+.form-validation {
+  color: var(--red);
+  background-color: #af9ea6;
+  width: 50%;
+  margin: auto;
+}
