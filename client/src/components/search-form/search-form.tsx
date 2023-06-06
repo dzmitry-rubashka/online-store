@@ -10,7 +10,7 @@ const SearchForm: React.FC = () => {
   const [filteredState, setFilteredState] = useState<SearchFormStateProps>({
     name: "",
     minPrice: 0,
-    maxPrice: 0,
+    maxPrice: 2000,
     operatingSystem: "Android",
     minScreenResolution: 4,
     maxScreenResolution: 8,
@@ -51,7 +51,7 @@ const SearchForm: React.FC = () => {
     setFilteredState({
       name: "",
       minPrice: 0,
-      maxPrice: 0,
+      maxPrice: 2000,
       operatingSystem: "Android",
       minScreenResolution: 4,
       maxScreenResolution: 8,
