@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+const phone = (sequelize, DataTypes) => {
   const Phone = sequelize.define(
     "Phone",
     {
@@ -69,3 +69,5 @@ module.exports = (sequelize, DataTypes) => {
   );
   return Phone;
 };
+
+export default phone;
