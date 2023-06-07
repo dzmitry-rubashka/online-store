@@ -1,6 +1,11 @@
 import express from "express";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-const port = 8080;
 
-app.listen(port, () => console.log(`Running on port ${port}`));
+const port = process.env.PORT;
+const host = process.env.DB_HOST;
+
+app.listen(port, () => console.log(`Listening on http://${host}:${port}`));
